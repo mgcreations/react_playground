@@ -3,7 +3,12 @@ import React from 'react';
 import ContactCard from "../components/ContactCard";
 import Joke from "../components/Joke";
 
+import jokesData from "../components/jokesData";
+
 function Footer() {
+
+        const jokesComponents = jokesData.map(joke => <Joke key={joke.id} question={joke.question} punchLine={joke.punchLine}/>)
+
     return (
         <div className="footer">
             <h3>This is my first footer in React</h3>
@@ -23,21 +28,7 @@ function Footer() {
             </div>
 
             <div className="joke">
-                <Joke
-                    joke={{ question: "Why do we tell actors to break a leg?", punchLine: "Because every play has a cast" }}
-                />
-
-                <Joke
-                    joke={{ question: "What do you call a fish without eyes?", punchLine: "FSH" }}
-                />
-
-<Joke
-                    joke={{ question: "What do you call a pig that does karate?", punchLine: "A pork chop" }}
-                />
-
-<Joke
-                    joke={{ punchLine: "when life gives you melons, you're dyslexic" }}
-                />
+                {jokesComponents}
 
             </div>
         </div>
